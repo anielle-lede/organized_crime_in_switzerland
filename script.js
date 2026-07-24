@@ -816,8 +816,14 @@ Promise.all([
     // repeatedly "reappearing". Once the crossfade to the canton map actually
     // starts, .faded-out takes over (enterSwitzerland clears this inline style
     // right before adding that class), so skip touching it here.
+    // `raw > 0` guards against the page's resting state before the user has
+    // scrolled into the spacer at all - without it, the still-undimmed initial
+    // map (the plain choropleth, before any scrolling) got dimmed too, since
+    // "haven't reached the spacer yet" clamps to the same overallProgress=0 as
+    // "just inside the lead-in".
     if (!mapLayer.classed("faded-out")) {
-      mapLayer.style("opacity", maxBeatOpacity < 0.05 ? 0.3 : 1);
+      const dim = raw > 0 && maxBeatOpacity < 0.05;
+      mapLayer.style("opacity", dim ? 0.3 : 1);
     }
   }
 

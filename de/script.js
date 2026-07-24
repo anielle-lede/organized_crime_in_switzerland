@@ -821,8 +821,14 @@ Promise.all([
     // zur Kantonskarte tatsächlich startet, übernimmt .faded-out (enterSwitzerland
     // löscht diesen Inline-Style direkt vor dem Setzen der Klasse), darum hier
     // dann nichts mehr anfassen.
+    // `raw > 0` schützt den Ruhezustand der Seite, bevor überhaupt in den
+    // Scroll-Bereich gescrollt wurde - ohne diese Bedingung wurde auch die
+    // unangetastete Startkarte (die normale Choroplethenkarte vor jedem Scrollen)
+    // gedimmt, weil "Scroll-Bereich noch nicht erreicht" auf denselben Wert
+    // overallProgress=0 abgeschnitten wird wie "gerade erst im Vorlauf".
     if (!mapLayer.classed("faded-out")) {
-      mapLayer.style("opacity", maxBeatOpacity < 0.05 ? 0.3 : 1);
+      const dim = raw > 0 && maxBeatOpacity < 0.05;
+      mapLayer.style("opacity", dim ? 0.3 : 1);
     }
   }
 
