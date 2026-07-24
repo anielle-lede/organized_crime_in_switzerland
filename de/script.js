@@ -699,6 +699,10 @@ Promise.all([
 
     clearTimeout(crossfadeTimer);
     crossfadeTimer = setTimeout(() => {
+      // Dimming-Opacity aus updateScrolly() zuerst löschen, damit opacity:0
+      // der .faded-out-Klasse nicht von einem übrig gebliebenen Inline-Style
+      // blockiert wird.
+      mapLayer.style("opacity", null);
       mapLayer.classed("faded-out", true);
       chLayer.classed("visible", true);
       markerGroup.classed("visible", true);
@@ -790,12 +794,14 @@ Promise.all([
       if (overallProgress > beatStart(1)) enterEurope(); else exitEurope();
     }
 
+    let maxBeatOpacity = 0;
     scrollyBeats.forEach((beat, i) => {
       const localRaw = (overallProgress - beatStart(i)) / beatSegment(i);
       const localProgress = Math.max(0, Math.min(1, localRaw));
       const opacity = fadeShape(localProgress);
       beat.style.opacity = opacity;
       beat.style.pointerEvents = opacity > 0.05 ? "auto" : "none";
+      maxBeatOpacity = Math.max(maxBeatOpacity, opacity);
       if (beat.id === "ch-scrolly-route") {
         routeLayer.style("opacity", opacity);
         // Labels blenden erst ein, nachdem Schiff/Pfeil schon eine Weile allein
@@ -806,6 +812,18 @@ Promise.all([
         routeLabels.style("opacity", fadeShape(labelProgress));
       }
     });
+
+    // Zwischen den Etappen (Vorlauf, oder die Strecke nachdem "Die Schweiz
+    // mittendrin" schon ausgeblendet ist - inklusive der Zoom-Verweildauer vor
+    // dem Kantonskarten-Crossfade) ist gerade kein Scrolly-Text zu sehen - die
+    // Hintergrundkarte wird dann gedimmt statt in voller Stärke gezeigt, damit
+    // sie zurücktritt statt ständig neu "aufzutauchen". Sobald der Crossfade
+    // zur Kantonskarte tatsächlich startet, übernimmt .faded-out (enterSwitzerland
+    // löscht diesen Inline-Style direkt vor dem Setzen der Klasse), darum hier
+    // dann nichts mehr anfassen.
+    if (!mapLayer.classed("faded-out")) {
+      mapLayer.style("opacity", maxBeatOpacity < 0.05 ? 0.3 : 1);
+    }
   }
 
   function onScroll() {

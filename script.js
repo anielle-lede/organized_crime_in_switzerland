@@ -697,6 +697,9 @@ Promise.all([
 
     clearTimeout(crossfadeTimer);
     crossfadeTimer = setTimeout(() => {
+      // Clear the dimming opacity set by updateScrolly() first, so the
+      // .faded-out class's opacity:0 isn't blocked by a leftover inline style.
+      mapLayer.style("opacity", null);
       mapLayer.classed("faded-out", true);
       chLayer.classed("visible", true);
       markerGroup.classed("visible", true);
@@ -787,12 +790,14 @@ Promise.all([
       if (overallProgress > beatStart(1)) enterEurope(); else exitEurope();
     }
 
+    let maxBeatOpacity = 0;
     scrollyBeats.forEach((beat, i) => {
       const localRaw = (overallProgress - beatStart(i)) / beatSegment(i);
       const localProgress = Math.max(0, Math.min(1, localRaw));
       const opacity = fadeShape(localProgress);
       beat.style.opacity = opacity;
       beat.style.pointerEvents = opacity > 0.05 ? "auto" : "none";
+      maxBeatOpacity = Math.max(maxBeatOpacity, opacity);
       if (beat.id === "ch-scrolly-route") {
         routeLayer.style("opacity", opacity);
         // Labels only fade in once the ship/arrow have already been alone on
@@ -803,6 +808,17 @@ Promise.all([
         routeLabels.style("opacity", fadeShape(labelProgress));
       }
     });
+
+    // Between stages (lead-in, or the stretch after "Switzerland, right in the
+    // middle" has faded out - including the zoom-in dwell before the canton
+    // map crossfade), no scrolly text is on screen - dim the background map
+    // instead of showing it at full strength, so it recedes rather than
+    // repeatedly "reappearing". Once the crossfade to the canton map actually
+    // starts, .faded-out takes over (enterSwitzerland clears this inline style
+    // right before adding that class), so skip touching it here.
+    if (!mapLayer.classed("faded-out")) {
+      mapLayer.style("opacity", maxBeatOpacity < 0.05 ? 0.3 : 1);
+    }
   }
 
   function onScroll() {
