@@ -6,7 +6,7 @@ An interactive data-journalism story about organized drug crime in Switzerland â
 
 **Project 3 â€“ Lede**
 
-Live here: [xyz](https://anielle-lede.github.io/organized_crime_in_switzerland/)
+Live here: https://anielle-lede.github.io/organized_crime_in_switzerland/
 
 ## Data sources
 
