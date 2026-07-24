@@ -262,7 +262,7 @@ const CASE_DETAILS = {
 
 Promise.all([
   d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-  d3.json("data/oc_index.json"),
+  d3.json("../data/oc_index.json"),
   d3.json("https://cdn.jsdelivr.net/npm/swiss-maps@4.7.0/2026/ch-combined.json"),
 ]).then(([world, ocData, chTopo]) => {
 

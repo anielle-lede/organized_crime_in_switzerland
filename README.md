@@ -22,19 +22,22 @@ Live here: xyz
 
 ## Project structure
 
+The English version is the main site, published at the repository root (required for GitHub Pages); the German version lives under `/de`.
+
 ```
-Data_Project3/
-├── index.html              Main page (German)
+├── index.html              Main page (English)
 ├── script.js                D3 logic: world map, Switzerland zoom, canton map, case popups
 ├── style.css                 All styling (both language versions)
 ├── drugs1.png                Hero image
+├── imperiale.jpg, kinahan.jpg,
+│   gacanin.jpg, taghi.jpg      Photos of the four "Super Cartel" figures
 ├── global_oc_index.xlsx      Raw Global Organized Crime Index data
 ├── 01_data_extraction.ipynb  Documented data processing (xlsx → JSON)
 ├── data/
 │   └── oc_index.json         Processed country data for the world map
-└── en/
-    ├── index.html             Main page (English)
-    └── script.js               Same logic, translated content
+└── de/
+    ├── index.html             Main page (German)
+    └── script.js               Same logic, German content
                                  (uses ../style.css, ../drugs1.png, ../data/oc_index.json)
 ```
 
