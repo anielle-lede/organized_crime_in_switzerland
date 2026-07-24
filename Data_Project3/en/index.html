@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Organized Drug Crime – World Map</title>
+  <link rel="stylesheet" href="../style.css?v=1">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-media">
+      <img src="../drugs1.png" alt="Two hands hold a small plastic bag of white powder and a foil pouch with a 'Thank you' sticker.">
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="headline">Crypto Dealer, Bunker Cartel and Bodypacking: The Brazen Tricks of Switzerland's Drug Bosses</h1>
+      <p class="lead">Zurich is a hub of the international cocaine trade: bunkers full of weapons, encrypted phones, couriers who smuggle the goods inside their own bodies. An analysis of 12&nbsp;indictments shows how professionally and ruthlessly Zurich's drug scene operates.</p>
+    </div>
+    <p class="hero-credit">Source: Anielle Peterhans</p>
+  </header>
+
+  <p class="byline byline-below">By Anielle Peterhans</p>
+
+  <div class="article-intro">
+    <p>The cocaine's journey begins thousands of kilometers from Switzerland. In the deep forests and hidden labs of South America – in countries like Bolivia, Peru or Colombia – the white powder is produced on an industrial scale. From there, the drug makes its way across the Atlantic toward Europe. To move the enormous quantities, international cartels rely mainly on sea routes: cocaine is smuggled by the ton, hidden in legal cargo aboard huge container ships bound for European mega-ports like Antwerp or Rotterdam. At the same time, a steady stream of smuggling continues by air, with couriers carrying the drugs on scheduled flights from Brazil or the Dominican Republic straight to Europe.</p>
+    <p>Once the cocaine reaches Europe, countries like the Netherlands or Spain serve as central hubs and staging points. But how does the pure product make its way from these European hubs into lucrative Switzerland, where margins are high and well-off buyers plentiful?</p>
+  </div>
+
+  <header class="world-chrome">
+    <h2>Most Drug Offenses Are in South America</h2>
+    <p class="subtitle" id="subtitle">Cocaine-trade score by country, 2025 (0–10)</p>
+  </header>
+
+  <main>
+    <div class="controls world-chrome">
+      <button class="metric-btn active" data-metric="cocaine">Cocaine trade</button>
+      <button class="metric-btn" data-metric="criminality">Criminality avg.</button>
+    </div>
+
+    <div class="legend world-chrome">
+      <span class="legend-label">Low</span>
+      <div class="legend-bar"></div>
+      <span class="legend-label">High</span>
+      <span class="legend-nodata"><i></i>No data</span>
+    </div>
+    <p class="country-readout world-chrome" id="country-readout">Click on a country for details.</p>
+
+    <div class="ch-scene">
+      <div class="map-sticky-wrap">
+        <div id="map"></div>
+        <p class="ch-hint" id="ch-hint">Click on a case to learn more.</p>
+        <p class="source world-chrome">Source: Global Organized Crime Index</p>
+
+        <div class="ch-scrolly ch-scrolly-transparent" id="ch-scrolly-route"></div>
+
+        <div class="ch-scrolly" id="ch-scrolly-europe">
+          <div class="ch-scrolly-inner">
+            <h2>The Super Cartel</h2>
+            <p>From South America to Europe, most of the cocaine moves through what's known as the «Super Cartel». Investigators identify four key figures behind it: Raffaele Imperiale, an international broker with ties to the Camorra; Daniel Kinahan, with his contacts to South American suppliers; Edin «Tito» Gačanin, responsible for distribution across large parts of Europe; and Ridouan Taghi, who controlled the import through Dutch ports and the distribution network in the Benelux countries. Together, the network is believed to have been responsible for around a third of the cocaine trade destined for Europe at times.</p>
+            <div class="cartel-figures">
+              <figure class="cartel-figure">
+                <img src="../imperiale.jpg" alt="Raffaele Imperiale">
+                <figcaption><strong>Raffaele Imperiale</strong><span>International broker, Camorra ties</span></figcaption>
+              </figure>
+              <figure class="cartel-figure">
+                <img src="../kinahan.jpg" alt="Daniel Kinahan">
+                <figcaption><strong>Daniel Kinahan</strong><span>Contacts to South American suppliers, Kinahan Cartel (Ireland)</span></figcaption>
+              </figure>
+              <figure class="cartel-figure">
+                <img src="../gacanin.jpg" alt="Edin «Tito» Gačanin">
+                <figcaption><strong>Edin «Tito» Gačanin</strong><span>Distribution across large parts of Europe, Bosnian mafia</span></figcaption>
+              </figure>
+              <figure class="cartel-figure">
+                <img src="../taghi.jpg" alt="Ridouan Taghi">
+                <figcaption><strong>Ridouan Taghi</strong><span>Import via Dutch ports, Mocro Mafia (Netherlands/Morocco)</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="ch-scrolly" id="ch-scrolly-0">
+          <div class="ch-scrolly-inner">
+            <h2>Switzerland, Right in the Middle</h2>
+            <p>An analysis of 12&nbsp;indictments from the Zurich judiciary offers an unprecedented look into the structures of organized drug crime. The case files, spanning 2017 to 2025, document cocaine's journey from South America and the Netherlands onto the streets of Zurich.</p>
+            <p>The Zurich investigation files reveal smuggling methods at the Swiss border that are as varied as they are refined. By land, gangs often use inconspicuous rental cars to transport drugs from the Netherlands or Germany. They deliberately cross unguarded "green borders" such as the one near Basel to evade automatic camera systems and customs officers. The drugs are hidden with striking professionalism – for instance in specially installed car batteries, or tucked into huge trolleys among genuine plant deliveries. No sooner has the border been crossed than the hot cargo is often transferred at night into unsuspicious Swiss taxis. A taxi heading inland in the early morning hours draws little police attention.</p>
+            <p>Another, far more drastic route leads straight through Zurich Airport: so-called bodypackers swallow up to 130 rubber capsules of cocaine, carrying almost a full kilogram of the life-threatening cargo through customs in their own stomachs. After landing, their handlers drive them straight to nearby budget hotels at the airport or in the city, where they must painfully pass the capsules.</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="scroll-spacer"></section>
+      <div id="switzerland-trigger" class="trigger-marker"></div>
+      <div class="ch-space-below"></div>
+    </div>
+
+    <p class="case-writeups-intro">Three of the 12&nbsp;cases stand out for their sheer criminal audacity: the heavily armed bunker cartel, the digital wholesaler, and a ruthless bodypacking ring.</p>
+
+    <article class="case-writeups">
+      <section class="case-writeup">
+        <p class="beat-subtitle">Case 1</p>
+        <h2>The Heavily Armed Bunker Cartel in the Financial District</h2>
+        <p>Deep beneath Zurich's Bleicherweg, in the basement of an unremarkable building right in the middle of the banking district, ruin is stored. Person A, the head of a ruthless gang, and his chief distributor, Person B, run professional drug bunkers here and at a second site in Benglen. The quantities are massive: in a steady stream of shipments from abroad, they have kilos of high-purity cocaine smuggled into Switzerland, cut it, and prepare it for street sale. But what makes this group so extremely dangerous isn't just the white powder – it's their arsenal, enough to fight a street war. In the bunkers and at private residences, they stockpile an Uzi submachine gun, several AK-47 assault rifles, Winchester and Remington pump-action shotguns, suppressors, machetes, and huge drum magazines holding thousands of rounds of ammunition.</p>
+        <p>Person A's sheer ruthlessness is most evident in how he launders his dirty millions: rather than relying on modern financial networks, he uses archaic, nerve-wracking mafia methods. He vacuum-seals hundreds of thousands of euros in plastic bags, tapes the thick bundles of cash to his legs and torso, and boards the night train to Munich or Milan fully loaded, to pay his suppliers in cash. On another occasion, he hides tens of thousands of francs in empty boxes for aperitif snack sticks. He shows no more respect for the law elsewhere: although his driver's license was revoked indefinitely years earlier, he regularly cruises the canton in a loud Jaguar F-Type V6. During the final raid, police storm the bunker on Bleicherweg and seize more than 6.4 kilograms of cocaine, over 8 kilograms of hashish, and thousands of ecstasy pills there alone.</p>
+      </section>
+
+      <section class="case-writeup">
+        <p class="beat-subtitle">Case 2</p>
+        <h2>The Crypto Dealer and the Brazen State Fraud</h2>
+        <p>Person I's deals run quiet, digital, and heavily encrypted. Under his alias on the crypto app "SkyECC," he negotiates covertly with international cartels. He orders cocaine in massive tranches of up to 13 kilograms at a time, haggling the price per kilo down to around EUR&nbsp;32,750 in hard-nosed chats. His logistics are perfected down to the last detail: hired couriers smuggle the goods into Switzerland across the German border near Bad Säckingen, in vehicles like a VW Caddy fitted with specially built hidden compartments. But Person I doesn't stop at white powder. In a Hollywood-worthy operation, he has an astonishing 95.3 kilograms of marijuana delivered – professionally disguised in a giant trolley wrapped in black plastic, hidden among genuine plants inside a delivery van.</p>
+        <p>What truly sets this wholesaler apart, though, is his almost limitless nerve toward the state. While the drug millions flow, Person I sniffs out another, effortless source of income in the middle of the global pandemic. He falsifies the accounts for his kebab shop and a second limited company to fraudulently obtain CHF&nbsp;75,000 in interest-free Covid-19 emergency loans from the federal government, without a shred of scruple. Rather than using the money to plug supposed holes in his companies, he squanders the taxpayers' money on foreign currency purchases and lavish shopping sprees at Louis Vuitton in Milan, at Burberry, and at pricey bike shops. When the house of cards finally collapses, police seize, alongside vast amounts of cash, four expensive luxury watches, including two Rolexes and two Audemars Piguets.</p>
+      </section>
+
+      <section class="case-writeup">
+        <p class="beat-subtitle">Case 3</p>
+        <h2>The Bodypacking Syndicate and the Living Smuggling Containers</h2>
+        <p>The air route between the Caribbean and Zurich is this syndicate's dark lifeline. Person Q and his deputy, Person P, run a highly organized ring that specializes in the most dangerous and agonizing method of drug smuggling: bodypacking. Again and again, they recruit couriers who fly into Switzerland on inconspicuous scheduled flights from Punta Cana or Brazil. In their stomachs, these people carry a ticking time bomb. A single courier swallows up to 137 rubber-wrapped "finger packs" before his flight – equivalent to almost a full kilogram of high-purity cocaine that could rupture inside his body and kill him at any moment.</p>
+        <p>As soon as the couriers land in Kloten, Person P discreetly picks up these living drug containers at the airport and drives them straight to sterile airport hotels, such as the Ibis Budget near the Technopark or the Hotel Olympia. Behind closed doors, the couriers must painfully pass the capsules in the bathroom before collecting their pay. The washed drugs are immediately brought to Person R, the gang's bunker keeper, who cuts and portions the cocaine in his apartments and packages it for the street market. To avoid drawing attention during phone orders, the trio communicates using an elaborate color code matching Swiss banknotes exactly: "yellow" stands for 10 grams, "green" for 50 grams, and "pink" for massive 500-gram blocks. They launder the enormous profits systematically, breaking the money into 134 individual transfers sent back to their suppliers in the Dominican Republic via financial service providers. Just how numb and cold-blooded the ringleaders are becomes clear at the end, on Person P's mobile phone: alongside drug-related records, investigators find harrowing images that show, in graphic detail, a person being dismembered.</p>
+      </section>
+    </article>
+  </main>
+
+  <div class="case-popup-backdrop" id="case-popup-backdrop">
+    <article class="case-popup" id="case-popup" role="dialog" aria-modal="true" aria-labelledby="case-popup-title">
+      <button class="case-popup-close" id="case-popup-close" aria-label="Close">✕</button>
+      <p class="case-popup-filenum" id="case-popup-filenum"></p>
+      <h3 id="case-popup-title"></h3>
+      <p class="case-popup-lede" id="case-popup-lede"></p>
+      <p class="case-popup-section-label">Main suspects</p>
+      <ul class="case-popup-accused" id="case-popup-accused"></ul>
+      <p class="case-popup-section-label">Key facts</p>
+      <ul class="case-popup-facts" id="case-popup-facts"></ul>
+    </article>
+  </div>
+
+  <!-- Load D3 and topojson-client from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>
