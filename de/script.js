@@ -722,6 +722,23 @@ Promise.all([
     applyBackgroundZoom(); // fällt auf Europa/Route/Welt zurück, je nachdem wo wir noch sind
   }
 
+  // Blendet alle Länder aus, die für die aktuelle Etappe nicht relevant sind,
+  // damit der Blick gezielt auf die gerade erzählten Länder fällt statt auf die
+  // gesamte (weiterhin voll eingefärbte) Choroplethenkarte. `null` löscht die
+  // Hervorhebung (Zustand vor Beginn jeder Etappe, wenn die normale Karte
+  // erkundet wird).
+  function updateCountryHighlight() {
+    let names = null;
+    if (showingSwitzerland) {
+      names = ["Switzerland"];
+    } else if (showingEurope) {
+      names = EUROPE_COUNTRIES;
+    } else if (showingRoute) {
+      names = [...SOUTH_AMERICA_SUPPLIERS, ...ENTRY_PORT_COUNTRIES];
+    }
+    countryPaths.classed("dimmed", d => names !== null && !names.includes(d.properties.name));
+  }
+
   // Auslöser direkt über den Scroll-Event, statt über IntersectionObserver:
   // robuster und ohne dessen Timing-Eigenheiten. Bei jedem Scroll wird die
   // Sichtbarkeit des Trigger-Punkts neu berechnet.
@@ -830,6 +847,8 @@ Promise.all([
       const dim = raw > 0 && maxBeatOpacity < 0.05;
       mapLayer.style("opacity", dim ? 0.3 : 1);
     }
+
+    updateCountryHighlight();
   }
 
   function onScroll() {

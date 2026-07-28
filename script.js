@@ -719,6 +719,22 @@ Promise.all([
     applyBackgroundZoom(); // falls back to Europe/Route/World, whichever we're still in
   }
 
+  // Grey out every country that isn't relevant to the current stage, so the
+  // reader's eye is drawn to the ones actually being talked about instead of
+  // the whole (still fully colored) choropleth. `null` clears the highlight
+  // (used before any stage starts, i.e. the plain map is being explored).
+  function updateCountryHighlight() {
+    let names = null;
+    if (showingSwitzerland) {
+      names = ["Switzerland"];
+    } else if (showingEurope) {
+      names = EUROPE_COUNTRIES;
+    } else if (showingRoute) {
+      names = [...SOUTH_AMERICA_SUPPLIERS, ...ENTRY_PORT_COUNTRIES];
+    }
+    countryPaths.classed("dimmed", d => names !== null && !names.includes(d.properties.name));
+  }
+
   // Trigger driven directly by the scroll event, instead of IntersectionObserver:
   // more robust and without its timing quirks. Visibility of the trigger point is
   // recomputed on every scroll.
@@ -825,6 +841,8 @@ Promise.all([
       const dim = raw > 0 && maxBeatOpacity < 0.05;
       mapLayer.style("opacity", dim ? 0.3 : 1);
     }
+
+    updateCountryHighlight();
   }
 
   function onScroll() {
